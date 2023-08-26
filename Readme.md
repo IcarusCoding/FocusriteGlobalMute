@@ -1,4 +1,6 @@
 # FocusriteGlobalMute
+> ⚠️ **This project is currently in a discontinued state due to time reasons and therefore archived for the moment** ⚠️
+
 Adds a global mute function to a predefined macro button and visualizes the mute state on a focusrite audio interface.
 
 ## Features
