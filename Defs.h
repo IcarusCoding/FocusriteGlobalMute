@@ -13,11 +13,12 @@
 #define WSA_INVALID_SOCKET          0x07
 #define WSA_SOCKET_ERROR            0x08
 
+// TODO automatically retrieve devid and port on replugging
 #define KEEPALIVE_MSG               "Length=00000D <keep-alive/>"
 #define INIT_MSG                    "Length=000043 <client-details client-key=\"xxxxxxxx-0000-xxxx-xxxx-xxxxxxxxxxxx\"/>"
-#define MODE_COLOR_MSG              "Length=000038 <set devid=\"1\">\r    <item id=\"45\" value=\"true\"/>\r</set>\r"
-#define MODE_AUDIO_MSG              "Length=000039 <set devid=\"1\">\r    <item id=\"45\" value=\"false\"/>\r</set>\r"
-#define COLOR_RED_MSG               "Length=000037 <set devid=\"1\">\r    <item id=\"46\" value=\"red\"/>\r</set>\r"
+#define MODE_COLOR_MSG              "Length=000031 <set devid=\"1\"><item id=\"45\" value=\"true\"/></set>"
+#define MODE_AUDIO_MSG              "Length=000032 <set devid=\"1\"><item id=\"45\" value=\"false\"/></set>"
+#define COLOR_RED_MSG               "Length=000031 <set devid=\"1\"><item id=\"46\" value=\"pink\"/></set>"
 
 #define FUNCTION_KEY                0x7C // F15
 

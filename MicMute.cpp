@@ -91,7 +91,13 @@ DWORD WaitForServerStart(PUSHORT pLocalPort) {
 
 VOID SendCommand(PCCH szCommand) {
 	strcpy_s(buffer, szCommand);
-	send(client, buffer, strlen(buffer), 0);
+	std::cout << "Trying to send command \"" << buffer << "\"..\n";
+	if (send(client, buffer, strlen(buffer), 0) == SOCKET_ERROR) {
+		std::cout << "Sending message to server failed with exit code: " << std::hex << std::uppercase << WSAGetLastError() << "!\n";
+	}
+	else {
+		std::cout << "Success!\n";
+	}
 }
 
 VOID StartKeepalive() {
@@ -118,9 +124,11 @@ VOID StartMuteWatchdog() {
 			if (bMute != bLastMute) {
 				bLastMute = bMute;
 				if (bMute) {
+					std::cout << "Changed to Mute state.\n";
 					SendCommand(MODE_COLOR_MSG);
 					SendCommand(COLOR_RED_MSG);
 				} else {
+					std::cout << "Changed to Unmute state.\n";
 					SendCommand(MODE_AUDIO_MSG);
 				}
 			}
